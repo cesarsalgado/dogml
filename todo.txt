@@ -1,0 +1,3 @@
+- melhorar o to_string das classes.
+- criar uma superclasse para todos os wrappers
+- ver o que o pipeline do scikit-learn pode ajudar
