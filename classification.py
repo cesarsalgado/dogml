@@ -25,6 +25,8 @@ class NormalizerClassifier:
   def predict(self, X2):
     Z2 = self.normalizer.transform(X2)
     return self.clf.predict(Z2)
+  def __str__(self):
+    return self.clf.__str__()
 
 def original_order_train_test_fraction_split(train_fraction, data, labels):
   maxidx_train = int(train_fraction*len(labels))
