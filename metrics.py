@@ -15,9 +15,12 @@ def confusion_measures(conf):
   result[2,2] = float(tp+tn)/(tp+tn+fp+fn)
   return result
 
-def get_confusion_measures(ytrue, ypred):
+def get_confusion_measures(ytrue, ypred, nclasses=None):
   f1 = metrics.f1_score(ytrue, ypred)
-  c = confusion_measures(metrics.confusion_matrix(ytrue, ypred))
+  if nclasses != None:
+    c = confusion_measures(metrics.confusion_matrix(ytrue, ypred, labels=range(nclasses)))
+  else:
+    c = confusion_measures(metrics.confusion_matrix(ytrue, ypred))
   horizontal_separator = 37*'-'
   result = bytearray()
   result.extend("%-18s %-22s %-14s   %-10s%-10s\n" %
